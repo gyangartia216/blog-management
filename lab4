@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blog>
+	<feed xmlns:ns0="http://www.w3.org/2005/Atom"> 
+		<topic>Blogger</topic>
+			<entry> 
+				<category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/blogger/2008/kind#post" /> 
+				<id>BLOGGER TEST</ns0:id> 
+				<content type="html">Blogger CONTENT</content> 
+				<published>2013-10-29T03:22:00.001-07:00</published> 
+				<title type="html">BLOGGER TITLE</title>
+			<entry> 
+	<feed>
+</blog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="blog.xsl"?>
+<Travel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="Blog.xsd">
+
+   

@@ -1,0 +1,8 @@
+[
+    { "id":1, "name":"Brad Pitt", "dop":"January 31 2022", "location":"Bangalore", "topic":"Balcot case", "commnts":15, "likes":2500},
+	{"id":2, "name":"Adam Sandler", "dop":"March 05 2022", "location":"Pune", "topic":"Criminal Cases", "commnts":42, "likes":2325},
+	{"id":3, "name":"Ajeet D", "dop":"August 18 2022", "location":"Mumbai", "topic":"K.M. Nanavati vs State of Maharashtra", "commnts":34, "likes":8263},
+	{"id":4, "name":"Rajat Sharma", "dop":"February 08 2022", "location":"Jaipur", "topic":"Lal Bihari Identity Case", "commnts":98, "likes":7528},
+	{"id":5, "name":"Chris Evans", "dop":"October 28 2022", "location":"Jaipur", "topic":"Tarakeswar Case", "commnts":56, "likes":13725},
+	{"id":6, "name":"Ryan Reynolds", "dop":"June 12 2022", "location":"Ahemdabad", "topic":"Bhawal Case", "commnts":76, "likes":5240}
+]

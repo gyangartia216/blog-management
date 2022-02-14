@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+      
+          /* Style all input fields */
+          input[type=text],[type=password],[type=email] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid black;
+          }
+
+          textarea
+          {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid black;
+            width: 60%;
+            height: 30%;
+          }
+
+          /* Style the submit button */
+          input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+          }
+
+          /* The message box is shown when the user clicks on the password field */
+          #message {
+            display:none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 15px;
+            margin-top: 10px;
+          }
+
+          #message p {
+            padding: 10px 30px;
+            font-size: 16px;
+          }
+
+          /* Add a green text color and a checkmark when the requirements are right */
+          .valid {
+            color: green;
+          }
+
+          .valid:before {
+            position: relative;
+            left: -35px;
+            content: "✔";
+          }
+
+          /* Add a red text color and an "x" when the requirements are wrong */
+          .invalid {
+            color: red;
+          }
+
+          .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "✖";
+          }
+          span
+          {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+          }
+
+          h1
+          {
+            margin-left: 40%;
+            color: white;
+          }
+
+          li 
+          {
+            list-style: none;
+          }
+
+          :root 
+          {
+            --form-control-color: rgb(53, 111, 177);
+          }
+          .login-box
+          {
+            margin-left: 25%;
+            margin-right: 25%;
+            background-color: #5b74be;
+            border: 1px solid black;
+            background-color: transparent;
+            opacity: 0.6;
+          }
+
+          /* Style the container for inputs */
+          .container 
+          {
+            background-color:  #ADEFD1FF;
+            padding-left: 25%;
+            padding-top: 5%;
+          }
+
+          body
+          {
+            /*background-color: #00203FFF;*/
+          }
+
+          #button 
+          {
+            display: inline-block;
+            background-color: #00203FFF;
+            border-radius: 10px;
+            border: 4px double #cccccc;
+            color: #eeeeee;
+            text-align: center;
+            font-size: 16px;
+            padding: 12px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+          }
+         
+          #button:hover 
+          {
+            background-color: rgb(72, 157, 160);
+          }          
+          
+        }
+
+      </style>
+  
+  </head>
+    
+    <body>
+
+      <select id="demo" onchange="show()">
+        <option value="select color">select color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+      </select>
+
+    <h1><u>FEEDBACK FORM</u></h1>
+    <div class="login-box">
+    <div class="container">
+      <form action="#" onsubmit="return validate()">
+        
+        <input id="uname" name="uname" placeholder="Username" size="200" onkeypress="return test(event)" placeholder="UserName" type="text" required/>
+        <label id="lbuser" style="color: red; visibility: hidden;">Invalid User</label><br>
+
+        <input type="password" placeholder="password" id="psw" name="psw"  title="Must contain atleast one number, one uppercase, one lowercase letter and at least 8 or more characters" placeholder="Password" required><br>
+        <span></span><br>
+
+        <input placeholder="Email" value="" type="email" name="email" id="email" required/><br>
+        <span></span><br>
+
+        <textarea placeholder="Address" height="5" width="30" required></textarea><br>
+    
+        How much you will rate us:<br>
+        <ul>
+        <li><input type="radio" name="camp">1. Very Bad</li>
+        <li><input type="radio" name="camp">2. Bad</li>
+        <li><input type="radio" name="camp">3. Average</li> 
+        <li><input type="radio" name="camp">4. Good</li>
+        <li><input type="radio" name="camp">5. Very Good</li>
+        </ul><br>
+
+        Where do you heard about us:<br>
+        <ul>
+        <li><input type="checkbox" name="iu">Friends</li>
+        <li><input type="checkbox" name="iu">Television</li>
+        <li><input type="checkbox" name="iu">Internet</li>
+        <li><input type="checkbox" name="iu">Others</li>
+        </ul>
+        <br>
+
+        Comment<br>
+        <textarea height="5" width="50"></textarea><br><br>
+
+        <input id="button" type="submit"  value="Submit">
+        <input id="button" type="reset" value="Reset">
+
+      </form>
+    
+    </div>
+
+    <button id="btn1" onclick="setCookie('user', 'uname')" type="submit">set Cookie Username</button>
+    <button id="btn2" onclick="displayCookieValue('user')" type="button">display Cookie Username</button>
+    <br>
+    <button id="btn3" onclick="setCookie('email', 'email')" type="button">set Cookie email</button>
+    <button id="btn4" onclick="displayCookieValue('email')" type="button">display Cookie email</button>
+    <br>
+    <button id="btn5"  onclick="setCookie('color', 'demo')" type="submit">set Cookie color</button>
+    <button id="btn6" onclick="deleteAllCookies('color')" type="button">delete Cookie color</button>
+    <button id="btn7" onclick="displayCookieValue('color')" type="button">display Cookie color</button>
+    <br>
+    <button id="btn8" onclick="return saveData();" type="button">save data in Session storage</button>
+    <button id="btn9" onclick="return saveData1();" type="button">save data in Local storage</button>
+    <br>
+    </div>
+    <div id="value"></div>
+
+    <script>
+
+      var myInput = document.getElementById("psw");
+      var letter = document.getElementById("letter");
+      var capital = document.getElementById("capital");
+      var special = document.getElementById("special");
+      var number = document.getElementById("number");
+      var length = document.getElementById("length");
+
+      var email=document.getElementById('email');
+      var span=document.getElementsByTagName('span');  
+
+      function validate()
+      {
+
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+        var specials =  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        if(!myInput.value.match(lowerCaseLetters)) 
+        {  
+          span[0].innerText="missing lowerCaseLetters";
+          span[0].style.color="red";
+          return false;
+        }
+        else if(!myInput.value.match(upperCaseLetters)) 
+        {  
+          span[0].innerText="missing upperCaseLetters";
+          span[0].style.color="red";
+          return false;
+        }
+        else if(!myInput.value.match(numbers)) 
+        {  
+          span[0].innerText="missing number";
+          span[0].style.color="red";
+          return false;
+        }
+        else if(myInput.value.length < 8) 
+        {
+          span[0].innerText="short password";
+          span[0].style.color="red";
+          return false;
+        }
+        else if(!myInput.value.match(specials))
+        {
+          span[0].innerText="missing special character";
+          span[0].style.color="red";
+          return false;
+        }
+        else
+        {
+          span[0].innerText="Valid Password!!";
+          span[0].style.color="blue";
+        }
+
+        //for email validation
+        const regex1 = /[a-z0-9]+@(christuniversity.in)/;
+        
+        if(regex1.test(email.value))
+        {
+          span[1].innerText = "Your Email is Valid";
+          span[1].style.color = "blue";  
+        }
+        else
+        {
+            span[1].innerText="Invalid Email Id";
+            span[1].style.color="red";
+            //alert("Invalid Email!");
+            return false;
+        }
+  
+      }
+
+      function test(event)
+      {
+          let code=event.which;
+          if(code>47&&code<58)
+          return false;
+          else
+          return true;
+      }
+
+      function saveData() 
+      { 
+        window.sessionStorage
+        var input = document.getElementById("psw").value;
+        sessionStorage.setItem("psw", input.value);
+        console.log(input);
+      } 
+       
+
+      function saveData1() 
+      { 
+        window.localStorage
+        var input = document.getElementById("uname");
+        localStorage.setItem("uname", input.value);
+        console.log(input);
+      } 
+
+      var today = new Date();
+        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+
+        function setCookie(name, id) {
+            var element = document.getElementById(id);
+            var elementValue = escape(element.value);
+
+            document.cookie = name + "=" + elementValue  + "; path=/; expires=" + expiry.toGMTString();;
+            console.log(document.cookie);
+        }
+
+        function storeValues(form) {
+            setCookie("email", form.email - field.value);
+            return true;
+        }
+
+        function displayCookieValue(name) {
+            var value = getCookie(name);
+            var element = document.getElementById("value");
+            element.innerHTML = "Cookie name: "+ name + ", value " + value;
+
+        }
+
+        function getCookie(name) {
+            var re = new RegExp(name + "=([^;]+)");
+            var value = re.exec(document.cookie);
+            return (value != null) ? unescape(value[1]) : null;
+        }
+        window.onload = function () {
+          if(document.cookie.length != 0) {
+              var nameValueArray = document.cookie.split("=");
+              document.bgColor = nameValueArray[1];
+              document.getElementById("ddlTheme").value = nameValueArray[1];
+          }
+      }
+      function show()
+        {
+          var value1 = document.getElementById('demo').value;
+          if(value1!="select color")
+          {
+            document.bgColor = value1;
+            document.cookie="color="+value1;
+          }
+        }
+        window.onload=function()
+        {
+          if(document.cookie.length!=0)
+          {
+            var a=document.cookie.split("=");
+            document.getElementById("demo").value1 = a[1];
+            document.bgColor=a[1];
+          }
+        }
+        function deleteAllCookies(name) {
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <style>
+        body{
+                background-color: whitesmoke;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',  Verdana, sans-serif;
+            }
+
+        table{
+            border: 1px solid black;
+            /*margin-left: 15%;*/
+           /* margin-top: 10%;*/
+            border-radius: 20px;
+        }
+
+        td{
+            padding: 10px;
+            border: 1px solid rgb(10, 94, 38);
+        }
+
+        th{
+            text-align: center;
+            border: 1px solid rgb(3, 66, 34);
+            background-color: rgb(126, 240, 170);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+    </style>
+    
+    <script >
+        /*angular.module("Packages",[]) //This is a module named as packages as under this module only everything will work and its also a view from MVC(model view controller)
+    .filter("namefilter",function()
+    {
+        return function(input,option)
+        {
+            if(isNaN(option) ||(option == ""))
+            {
+                return input;
+            }
+            else
+            {
+            return input.substring(0,option).toUpperCase();
+        }}
+    })
+    .controller("Packagesctrl",function($scope) //This works as a controller
+    {
+        var feed = [
+            {name:'Ryan Renyolds', dop:new Date("January 31 2022"), location:"Bnglr", topic:"Balcot case", commnts:45, likes:2000},
+            {name:'Nick Bateman', dop:new Date("February 12 2022"), location:"Delhi", topic:"Family law", commnts:45, likes:1500},
+            {name:'Tom Cruise', dop:new Date("February 21 2022"), location:"Patna", topic:"Criminal Cases", commnts:45, likes:1800},
+            {name:'SRK', dop:new Date("March 10 2022"), location:"Mysore", topic:"K.M. Nanavati vs State of Maharashtra", commnts:45, likes:1200},
+            {name:'Adam Sandler', dop:new Date("January 12 2022"), location:"Pune", topic:"Lal Bihari Identity Case", commnts:45, likes:2500},
+            {name:'RDJ', dop:new Date("April 1 2022"), location:"Puri", topic:"Bhawal Case", commnts:45, likes:1600},
+            {name:'Chris Evans', dop:new Date("April 2 2022"), location:"Mumbai", topic:"Tarakeswar Case", commnts:45, likes:5000}
+        ];
+        $scope.feed = feed;
+        $scope.rowlimit = 7;
+    });*/
+    var myapp=angular.module("Packages",[])
+    .filter("namefilter",function()
+    {
+        return function(input,option)
+        {
+            if(isNaN(option) ||(option == ""))
+            {
+                return input;
+            }
+            else
+            {
+            return input.substring(0,option).toUpperCase();
+        }}
+    });
+    myapp.controller("Packagesctrl",function($scope,$http)
+    {
+        $http.get('https://gyangartia216.github.io/2147216_blog_management/feed.json')
+        //$http.get('feed.json')
+        .success(function(response)
+        {
+            $scope.feed=response;
+        });
+    });
+    </script>
+        
+  
+
+</head>
+<body ng-app="Packages">
+    <div ng-controller="Packagesctrl">
+        Rows to display:  <input type="number" step="1" min="0" max="7" ng-model="rowlimit"/><br><br>
+        Search:  <input type="text" placeholder="Search for any" ng-model="search"><br><br>
+        No of characters:  <input type="text" placeholder="Enter no. of characters" ng-model="limit"><br><br>
+        <br>
+        <table align="center">
+            <tr>
+                <th>Blog Author<br><input type="text" placeholder="enter author name" ng-model="search.name" style="border-radius: 20px;"></th>
+                <th>Date of Post<br><input type="text" placeholder="enter date" ng-model="search.dop" style="border-radius: 20px;"></th>
+                <th>Location<br><input type="text" placeholder="enter location" ng-model="search.location" style="border-radius: 20px;"></th>
+                <th>Topic <br><input type="text" placeholder="enter topic" ng-model="search.topic" style="border-radius: 20px;"></th>
+                <th>Comments</th>
+                <th>Likes</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="x in feed|limitTo:rowlimit|filter:search">
+                    <td>{{x.name|namefilter:limit}}</td>
+                    <td>{{x.dop|date:"dd/MM/yyyy"}}</td>
+                    <td>{{x.location|uppercase}}</td>
+                    <td>{{x.topic|lowercase}}</td> 
+                    <td>{{x.commnts|number:0}}</td>   
+                    <td>&#x1F44D;{{x.likes|number:0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

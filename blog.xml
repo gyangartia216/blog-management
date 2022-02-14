@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="blog.xsl"?>
+<blog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="blog.xsd">
+
+   <feed>
+    <BlogId>123</BlogId>
+    <topic>abc</topic>
+    <content>Civil law</content>
+    <category>Civil</category>
+    <author>Roy</author>
+    <comments>32</comments>
+   </feed>
+
+   <feed>
+    <BlogId>245</BlogId>
+    <topic>Criminal</topic>
+    <content>the kjaf.....jnagnf</content>
+    <category>Criminal law</category>
+    <author>Patil</author>
+    <comments>12</comments>
+   </feed>
+
+   <feed>
+    <BlogId>456</BlogId>
+    <topic>Common law</topic>
+    <content>The Common Law also known as case law or Judicial precedent</content>
+    <category>Common law</category>
+    <author>Yuvraj singh</author>
+    <comments>157</comments>
+   </feed>
+
+   <feed>
+    <BlogId>798</BlogId>
+    <topic>Lal Bihari Identity Case (1975-1994)</topic>
+    <content>Lal Bihari, was born in 1955; was dead through 1975 to 1994, and since then he has been an activist. Yes, you read that right. His uncle had bribed government officials to declare him dead so as to inherit their ancenstral land, and so, as per official records, Mr Lal Bihari was registered as 'deceased'. Once he realized what had happened, he started his struggle against the Indian bureaucracy to prove that he was alive. In the meantime, he performed his mock funeral, asked for widow's compensation for his wife, stood in the election against Rajiv Gandhi in 1989 and even added a ' Mritak ' to his name. As of now, he heads an organization that tries to handle similar identity cases for people who have been officially declared dead but are actually still alive.</content>
+    <category>Civil law</category>
+    <author>Ravinder</author>
+    <comments>678</comments>
+   </feed>
+
+   <feed>
+    <BlogId>578</BlogId>
+    <topic>Contract law</topic>
+    <content>The main contract law in India is codified in the Indian Contract Act, which came into effect on 1 September 1872 and extends to all India. It governs entrance into contract, and effects of breach of contract. Indian Contract law is popularly known as mercantile law of India.</content>
+    <category>Contract law</category>
+    <author>Amit Pandey</author>
+    <comments>37</comments>
+   </feed>
+
+   <feed>
+    <BlogId>679</BlogId>
+    <topic>Tax law</topic>
+    <content>Indian tax law involves several different taxes levied by different governments. Income Tax is levied by the Central Government under the Income Tax Act 1961. Customs and excise duties are also levied by the Central government. Sales tax is levied under VAT legislation at the state level.</content>
+    <category>Tax law</category>
+    <author>Khitish</author>
+    <comments>17</comments>
+   </feed>
+
+   <feed>
+    <BlogId>789</BlogId>
+    <topic>Company law</topic>
+    <content>The current Indian company law was updated and recodified in the Companies Act 2013.</content>
+    <category>Company law</category>
+    <author>Kunal</author>
+    <comments>27</comments>
+   </feed>
+
+   <feed>
+    <BlogId>947</BlogId>
+    <topic>Corporate</topic>
+    <content>abc</content>
+    <category>Corporate</category>
+    <author>Mr Das</author>
+    <comments>33</comments>
+   </feed>
+</blog>
+
+
